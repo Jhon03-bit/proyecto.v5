@@ -1,0 +1,162 @@
+/* ==================== FOOTER MODERNO + ANIMACIONES ==================== */
+.footer-custom {
+    background-color: #111;
+    color: #eee;
+    padding: 50px 20px 30px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* ----------------- COLUMNAS ----------------- */
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* ----------------- LOGO + INFO ----------------- */
+.logo-info {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    animation: fadeInDown 1s ease;
+}
+
+.footer-logo {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.footer-logo:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+
+.company-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+    color: #fff;
+    animation: fadeIn 1.2s ease;
+}
+
+.company-info p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+/* ----------------- TÍTULOS Y LISTAS ----------------- */
+.footer-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #fff;
+    position: relative;
+}
+
+.footer-column h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #4CAF50;
+    margin-top: 4px;
+    transition: width 0.3s;
+}
+
+.footer-column:hover h4::after {
+    width: 100%;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #4CAF50;
+    transform: translateX(5px);
+}
+
+/* ----------------- FOOTER BOTTOM ----------------- */
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.footer-bottom a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* ----------------- ANIMACIONES ----------------- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-info {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        min-width: 90%;
+    }
+
+    .footer-column ul li a {
+        justify-content: center;
+    }
+}

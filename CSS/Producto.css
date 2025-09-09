@@ -1,0 +1,203 @@
+/* ==================== Sección de Productos Profesional ==================== */
+.prods-section {
+    padding: 10px 20px;
+
+}
+
+.prods-title {
+    font-size: 2rem;
+    color: #27ae60;
+    margin-bottom: 40px; /* aumentamos para separar del grid */
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.prods-title span {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 3px solid #27ae60; /* cursor */
+    animation: typing 2.5s ease forwards, blink 0.7s step-end infinite;
+}
+
+/* Escritura suave */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Cursor parpadeante */
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #27ae60; }
+}
+
+/* Línea debajo del texto, aparece después */
+.prods-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #27ae60;
+    width: 0;
+    border-radius: 2px;
+    animation: underline 1s ease forwards;
+    animation-delay: 2.5s; /* espera hasta que termine la escritura */
+}
+
+@keyframes underline {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+
+
+.prods-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.prods-item {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.prods-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.prods-content {
+    padding: 5px;
+    text-align: center;
+}
+
+/* Imagen más grande */
+.prods-content img {
+    width: 100%;
+    height: 220px; /* aumentada */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px; /* reducido */
+    transition: transform 0.3s;
+}
+
+.prods-content img:hover {
+    transform: scale(1.05);
+}
+
+/* Texto más compacto */
+.prods-text h3 {
+    font-size: 1.1rem; /* reducido */
+    color: #333;
+    margin-bottom: 5px; /* reducido */
+    font-weight: 600;
+}
+
+.prods-text p {
+    font-size: 0.85rem; /* reducido */
+    color: #555;
+    line-height: 1.3;
+}
+
+/* Footer con precio y botón */
+.prods-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.prods-price {
+    font-size: 1rem; /* reducido */
+    font-weight: 700;
+    color: #e67e22;
+}
+
+/* Botón de WhatsApp */
+.prods-whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.prods-whatsapp-btn img {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+.prods-whatsapp-btn:hover {
+    background-color: #1ebe57;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ==================== Responsividad ==================== */
+@media (max-width: 992px) {
+    .prods-list {
+        gap: 25px;
+    }
+
+    .prods-content img {
+        height: 180px; /* ligeramente más pequeña */
+    }
+}
+
+@media (max-width: 768px) {
+    .prods-section {
+        padding: 4px 1px;
+    }
+
+    .prods-title {
+        font-size: 1.7rem;
+    }
+   
+    .prods-title::after {
+        width: 335px;
+    }
+
+    .prods-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .prods-content{
+        padding: 0px;
+    }
+
+    .prods-content img {
+        height: 260px;
+    }
+
+    .prods-text h3 {
+        font-size: 1rem;
+    }
+
+    .prods-text p {
+        font-size: 0.8rem;
+    }
+
+    .prods-price {
+        font-size: 0.95rem;
+    }
+}
