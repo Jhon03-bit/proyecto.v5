@@ -1,0 +1,410 @@
+/* ==================== Estilos Generales y Desktop ==================== */
+:root {
+    --primary-color: #27ae60;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --border-color: #eee;
+    --hover-bg: #e0ffe0;
+    --header-bg-mobile: #fff;
+}
+
+header {
+    background-color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo img {
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav-list a {
+    transition: color 0.1s;
+}
+
+.cta-button {
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.cta-button:hover {
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.5);
+    transform: translateY(-3px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    height: 70px;
+}
+
+.company-name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    display: inline-block;
+}
+
+/* ==================== Buscador ==================== */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: var(--light-bg);
+    border-radius: 20px;
+    padding: 0.4rem 0.5rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    width: 250px;
+    max-width: 30%;
+}
+
+.search-container:hover {
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
+}
+
+.search-container svg {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    width: 100%;
+    background: transparent;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+.main-nav {
+    display: flex;
+    flex-grow: 5;
+    justify-self: flex-end;
+    margin-left: 6em; /* Aumenta el espacio entre el logo/nombre y el menú */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 10px;
+    padding: 0.4px   0.5px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.nav-list li {
+    position: relative;
+}
+
+.nav-list,
+.nav-list ul {
+    list-style: none; /* elimina viñetas en todos los niveles */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+
+/* ==================== Estilos para el Botón de Acción (CTA) ==================== */
+.cta-button {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    white-space: nowrap;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1100;
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.5);
+}
+
+.main-nav {
+    margin-right: 0rem; /* Ajusta el margen para que no se superponga con el botón flotante */
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.7);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+/* ==================== Dropdowns (Desktop) ==================== */
+.dropdown > a::after {
+    content: " ▼";
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.nav-list li.dropdown:hover > .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    display: block;
+    white-space: nowrap;
+    transition: background 0.1s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ==================== Hamburger Menu ==================== */
+.hamburger {
+    display: none; /* Oculto por defecto en escritorio */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+    transition: transform 0.3s ease;
+}
+
+.hamburger:hover {
+    transform: scale(1.0);
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Estado activo: transforma el ícono en una "X" */
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hamburger, .mobile-menu-header, .close-menu, .overlay {
+    display: none;
+}
+
+/* ==================== Media Query para Móviles ==================== */
+@media (max-width: 1000px) {
+    /* Ocultar elementos de escritorio */
+    .cta-button, .search-container{
+        display: none;
+    }
+
+    /* Mostrar elementos de móvil */
+    .hamburger {
+        display: flex;
+        z-index: 1002;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+    .hamburger span {
+        width: 100%;
+        height: 3px;
+        background: var(--primary-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background-color: var(--header-bg-mobile);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1002;
+    }
+    
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 0.5rem;
+        right: 1.5rem;
+        font-size: 2.5rem;
+        color: var(--text-color);
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1002;
+        transition: transform 0.3s ease;
+    }
+    .close-menu:hover {
+        transform: rotate(90deg);
+    }
+    
+    /* Menú de navegación móvil */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -300px; /* Inicialmente oculto */
+        width: 300px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1001;
+        padding-top: 5;
+    }
+
+    /* Overlay */
+    .overlay {
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Estado "activo" del menú */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .main-nav.active {
+        right: 0;
+    }
+    .overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Estilos para dropdowns móviles */
+    .dropdown-menu {
+        display: none;
+        position: static;
+        box-shadow: none;
+        background: var(--light-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 0;
+    }
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+    .dropdown > a::after {
+        content: "›";
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+    }
+    .dropdown.open > a::after {
+        transform: rotate(90deg);
+    }
+    
+    /* Y el resto de tus estilos de lista para móvil */
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .nav-list li a {
+        padding: 0.8rem 1.5rem;
+        display: block;
+    }
+    .dropdown-menu li a {
+        padding-left: 2.5rem;
+    }
+}
